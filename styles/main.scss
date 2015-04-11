@@ -1,3 +1,7 @@
+@import 'normalize.scss';
+@import 'mansonry.scss';
+
+
 $bull-color: #1393d5;
 
 @mixin centerify(){
@@ -23,6 +27,16 @@ body{
   background: $bull-color;
   font-family: "Arial Bold", helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+ul{
+
+  padding: 0;
+  margin: 0;
+
+  li{
+    display: block;
+  }
 }
 
 p, a{
@@ -140,25 +154,47 @@ p, a{
     height: 100%;
   }
 
-  img{
+  img, .tweets{
     display: block;
     float: left;
     width: 20%;
-    opacity: 0;
-    background: red;
+    color: #fff;
+
+
+    &.tweets{
+      padding: .5em;
+      width: calc(20% - 1em);
+
+      overflow: hidden;
+
+      p{
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
 
     &.image{
-      opacity: 1;
       background-color: transparent;
 
-      &:hover{
-        @extend .animated;
-        @extend .tada;
 
+      @extend .animated;
+      @extend .tada;
+      
+
+      &:hover{
         padding: .5em;
         width: calc(20% - 1em);
       }
+
     }
+  }
+
+  .tweets{
+    background-color: #eff0f2;
+    color: $bull-color;
+
   }
 }
 
