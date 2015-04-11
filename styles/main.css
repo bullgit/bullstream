@@ -1,3 +1,7 @@
+:root {
+  font-size: 16px;
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -7,6 +11,8 @@ html, body {
 
 body {
   background: #1393d5;
+  font-family: "Arial Bold", helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -14,27 +20,101 @@ body {
   height: 100%;
   float: left;
 }
-.container img {
+.container__content {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: 2;
+}
+.container:after {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(to bottom, transparent, #1393d5 50%);
+}
+
+.container__content {
+  color: #ffffff;
+}
+.container__content header h1 {
+  display: inline-block;
+  font-size: 32px;
+  padding: .15em .35em .05em;
+  line-height: 40px;
+  height: 40px;
+  background: #fff;
+  color: #1393d5;
+}
+.container__content header h1 span {
+  color: #000;
+}
+.container__content section p {
+  line-height: 24px;
+  font-weight: 400;
+}
+.container__content footer .btn {
+  margin-top: 1em;
+}
+
+.container__background #instafeed {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+.container__background img {
   display: block;
   float: left;
-  width: calc(20% - 1em);
-  padding: .5em;
+  width: 20%;
   opacity: 0;
   background: red;
 }
-.container img.image {
+.container__background img.image {
   opacity: 1;
   background-color: transparent;
 }
+.container__background img.image:hover {
+  padding: .5em;
+  width: calc(20% - 1em);
+}
 
-.animated, .container img.image {
+.btn {
+  padding: .75em .8em;
+  min-width: 240px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+}
+.btn--cat {
+  box-shadow: inset 0 0 0 2px currentColor;
+  background: transparent;
+  color: currentColor;
+  float: right;
+}
+.btn--cat:hover {
+  background: #ffffff;
+  color: #1393d5;
+}
+
+/*---------------------------------
+    EFFECTS 
+    ---------------------------------*/
+.animated, .container__background img.image:hover {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 
-.tada, .container img.image {
+.tada, .container__background img.image:hover {
   -webkit-animation-name: tada;
   animation-name: tada;
 }
