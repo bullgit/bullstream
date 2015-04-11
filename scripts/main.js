@@ -19,7 +19,7 @@ function removeModal(){
 var feed = new Instafeed({
   get: 'user',
   userId: 1267128720,
-  accessToken: '1267128720.467ede5.3b71227b5f3b4986b1682c8b1d2b40de'
+  accessToken: '1267128720.467ede5.3b71227b5f3b4986b1682c8b1d2b40de',
   resolution: 'low_resolution',
   template: '<a href="{{link}}" class="img"><img src="{{image}}" class="image tada" /></a>'
 });
