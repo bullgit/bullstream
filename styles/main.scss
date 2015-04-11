@@ -25,6 +25,10 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
+p, a{
+  font-family: "courier", serif;
+}
+
 .container{
   width: 100%;
   height: 100%;
@@ -47,25 +51,65 @@ body{
     z-index: 1;
     background: linear-gradient(to bottom, transparent, $bull-color 50%);
   }
+
+  &.step-2{
+    &:after{
+      @extend .remove;
+    }
+  }
 }
 
 .container__content{
 
   color: #ffffff;
+  transition: transform .4s ease;
 
   header{
     h1{
-      display: inline-block;
+      display: block;
       font-size: 32px;
       padding: .15em .35em .05em;
       line-height: 40px;
       height: 40px;
       background: #fff;
-      color: $bull-color;
+      box-shadow: -3px 3px 0 rgba(#000, .2);
+      position: relative;
+      float: left;
+      margin-bottom: .5em;
+
+      &:hover{
+        box-shadow: -1px 1px 0 rgba(#000, .2);
+        top: 2px;
+        left: -2px;
+      }
+
+      a{
+        text-decoration: none;
+      }
 
       span{
-        color: #000;
+
+        &.logo--1{
+          color: $bull-color;
+        }
+        &.logo--2{
+          color: transparent;
+          text-transform: -999999999px;
+          letter-spacing: -100px;
+          width: 0;
+          &:after{
+            content: 'stream';
+            color: #000;
+            letter-spacing: 1px;
+            width: auto;
+          }
+        }
       }
+
+      &:hover span.logo--2:after{
+            content: 'git';
+            color: #000;
+          }
     }
   }
 
@@ -73,7 +117,8 @@ body{
 
     p{
       line-height: 24px;
-      font-weight: 400;
+      font-weight: 500;
+      font-family: "courier", serif;
     }
   }
 
@@ -81,6 +126,7 @@ body{
 
     .btn{
       margin-top: 1em;
+      text-transform: uppercase;
     }
   }
 }
@@ -118,7 +164,7 @@ body{
 
 
 .btn{
-  padding: .75em .8em;
+  padding: .75em 1.2em;
   min-width: 240px;
   text-align: center;
   text-decoration: none;
@@ -138,6 +184,27 @@ body{
 
 }
 
+.clearfix:after {
+ visibility: hidden;
+ display: block;
+ font-size: 0;
+ content: " ";
+ clear: both;
+ height: 0;
+}
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+.cf{
+  @extend .clearfix;
+}
+
+.remove{
+    transform: scale(0);
+  }
 
 /*---------------------------------
     EFFECTS 

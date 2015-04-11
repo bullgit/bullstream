@@ -15,6 +15,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+p, a {
+  font-family: "courier", serif;
+}
+
 .container {
   width: 100%;
   height: 100%;
@@ -43,25 +47,56 @@ body {
 
 .container__content {
   color: #ffffff;
+  transition: -webkit-transform .4s ease;
+  transition: transform .4s ease;
 }
 .container__content header h1 {
-  display: inline-block;
+  display: block;
   font-size: 32px;
   padding: .15em .35em .05em;
   line-height: 40px;
   height: 40px;
   background: #fff;
+  box-shadow: -3px 3px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  float: left;
+  margin-bottom: .5em;
+}
+.container__content header h1:hover {
+  box-shadow: -1px 1px 0 rgba(0, 0, 0, 0.2);
+  top: 2px;
+  left: -2px;
+}
+.container__content header h1 a {
+  text-decoration: none;
+}
+.container__content header h1 span.logo--1 {
   color: #1393d5;
 }
-.container__content header h1 span {
+.container__content header h1 span.logo--2 {
+  color: transparent;
+  text-transform: -999999999px;
+  letter-spacing: -100px;
+  width: 0;
+}
+.container__content header h1 span.logo--2:after {
+  content: 'stream';
+  color: #000;
+  letter-spacing: 1px;
+  width: auto;
+}
+.container__content header h1:hover span.logo--2:after {
+  content: 'git';
   color: #000;
 }
 .container__content section p {
   line-height: 24px;
-  font-weight: 400;
+  font-weight: 500;
+  font-family: "courier", serif;
 }
 .container__content footer .btn {
   margin-top: 1em;
+  text-transform: uppercase;
 }
 
 .container__background #instafeed {
@@ -87,7 +122,7 @@ body {
 }
 
 .btn {
-  padding: .75em .8em;
+  padding: .75em 1.2em;
   min-width: 240px;
   text-align: center;
   text-decoration: none;
@@ -102,6 +137,34 @@ body {
 .btn--cat:hover {
   background: #ffffff;
   color: #1393d5;
+}
+
+.clearfix:after, .cf:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix, .cf {
+  display: inline-block;
+}
+
+/* start commented backslash hack \*/
+* html .clearfix, * html .cf {
+  height: 1%;
+}
+
+.clearfix, .cf {
+  display: block;
+}
+
+/* close commented backslash hack */
+.remove, .container.step-2:after {
+  -webkit-transform: scale(0);
+  transform: scale(0);
 }
 
 /*---------------------------------
