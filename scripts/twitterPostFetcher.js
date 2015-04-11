@@ -114,9 +114,9 @@
                              } else g[b].textContent = d
                      }
                      d = "";
-                     B ? (r && (n(a[b]), q && n(f[b])), q && (d += '<div class="tweets image">' + v(f[b].innerHTML) + "</div>"), d += '<p class="tweet">' + v(a[b].innerHTML) + "</p>", u && (d += '<p class="timePosted">' + g[b].getAttribute("aria-label") + "</p>")) : a[b].innerText ? (q && (d += '<p class="user">' + f[b].innerText + "</p>"), d += '<p class="tweet">' + a[b].innerText + "</p>", u && (d += '<p class="timePosted">' + g[b].innerText + "</p>")) : (q && (d += '<p class="user">' + f[b].textContent + "</p>"), d += '<p class="tweet">' + a[b].textContent +
+                     B ? (r && (n(a[b]), q && n(f[b])), q && (d += '<div class="tweets">' + v(f[b].innerHTML) + "</div>"), d += '<p class="tweet">' + v(a[b].innerHTML) + "</p>", u && (d += '<p class="timePosted">' + g[b].getAttribute("aria-label") + "</p>")) : a[b].innerText ? (q && (d += '<p class="user">' + f[b].innerText + "</p>"), d += '<p class="tweet">' + a[b].innerText + "</p>", u && (d += '<p class="timePosted">' + g[b].innerText + "</p>")) : (q && (d += '<p class="user">' + f[b].textContent + "</p>"), d += '<p class="tweet">' + a[b].textContent +
                          "</p>", u && (d += '<p class="timePosted">' + g[b].textContent + "</p>"));
-                     D && (d += '<p class="interact"><a href="https://twitter.com/intent/tweet?in_reply_to=' + p[b] + '" class="twitter_reply_icon"' + (r ? ' target="_blank">' : ">") + '<span class="t-icon icon-reply-mail"></span>  <span class="hidden">Reply</span></a><a href="https://twitter.com/intent/retweet?tweet_id=' + p[b] + '" class="twitter_retweet_icon"' + (r ? ' target="_blank">' : ">") + '<span class="t-icon icon-retweet"></span> <span class="hidden">Retweet</span></a><a href="https://twitter.com/intent/favorite?tweet_id=' + p[b] + '" class="twitter_fav_icon"' + (r ? ' target="_blank">' : ">") + "<span class='t-icon icon-star-two'></span>  <span class='hidden'>Favorite</span></a></p>");
+                     
                      E && void 0 !==
                          h[b] && (l = h[b], void 0 !== l ? (l = l.innerHTML.match(/data-srcset="([A-z0-9%_\.-]+)/i)[0], l = decodeURIComponent(l).split('"')[1]) : l = void 0, d );
                      c.push(d);
@@ -126,7 +126,7 @@
                      a = c.length;
                      f = 0;
                      g = document.getElementById(A);
-                     for (h = ""; f < a;) h += "<div class='tweets img item'>" + c[f] + "</div>", f++;
+                     for (h = ""; f < a;) h += "<div class='tweets item'>" + c[f] + "</div>", f++;
                      g.innerHTML = h + ""
                  } else z(c);
                  w = !1;
