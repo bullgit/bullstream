@@ -1,19 +1,34 @@
-// Hierachical Animations
-/**
-* Created by Kupletsky Sergey on 16.09.14.
+/*------------------------
 *
-* Hierarchical timing
-* Add specific delay for CSS3-transition to elements.
-*/
+* the Storedatas function accepts
+* two functions : $key & $value
+*
+* to determine if the user already visited the page
+* we'll use the `wasHere` key with a boolean value 
+* 
+------------------------*/
+function storeDatas($key, $value){
+  localStorage.setItem($key, $value);  
+}
+
+function alreadyVisited(){
+  if (localStorage.wasHere === "true" && localStorage.modalGone === "true") {
+   $('.container').addClass('step-2');
+   $('.container__content').addClass('remove');
+ }
+ else{
+
+ }
+}
 
 function removeModal(){
   $('#toggleModale').on('click', function(e){
     e.preventDefault()
     $('.container').addClass('step-2');
-    $('.container__content').addClass('remove')
+    $('.container__content').addClass('remove');
+    storeDatas('modalGone', true)
   })
 }
-
 
 
 var feed = new Instafeed({
@@ -27,4 +42,6 @@ var feed = new Instafeed({
 $(window).load(function() {
   feed.run();
   removeModal();
+  storeDatas('wasHere', true);
+  alreadyVisited();
 });
