@@ -20,7 +20,7 @@ function hierarchy(){
         .css("-webkit-transition-delay", delay+'s')
         .css("-o-transition-delay", delay+'s')
         .css("transition-delay", delay+'s')
-        .addClass('image');
+        .addClass('image tada');
       });
     });
   }, 500)
@@ -33,11 +33,9 @@ var feed = new Instafeed({
   tagName: 'bullgit',
   clientId: 'cb4424efd8974c4589c449a7d80a20c5',
   resolution: 'low_resolution',
-  template: '<a href="{{link}}" class="img"><img src="{{image}}" /></a>'
+  template: '<a href="{{link}}" class="img"><img src="{{image}}" class="image tada" /></a>'
 });
-feed.run();
 
-
-$(document).ready(function(){
-  hierarchy()
-})
+$(window).load(function() {
+  feed.run();
+});

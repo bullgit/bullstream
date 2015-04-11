@@ -1,3 +1,16 @@
+$bull-color: #1393d5;
+
+@mixin centerify(){
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+:root{
+  font-size: 16px;
+}
+
 
 html, body{
   width: 100%;
@@ -7,65 +20,162 @@ html, body{
 }
 
 body{
-  background: #1393d5;
+  background: $bull-color;
+  font-family: "Arial Bold", helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-.container {
+.container{
   width: 100%;
   height: 100%;
   float: left;
 
-  img{
+  @at-root #{&}__content{
+    @include centerify();
+    position: fixed;
+    z-index: 2;
+  }
+
+  &:after{
+    content: '';
     display: block;
-    float: left;
-    width: calc(20% - 1em);
-    
-    padding: .5em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(to bottom, transparent, $bull-color 50%);
+  }
+}
 
-    opacity: 0;
-    background: red;
+.container__content{
 
-    &.image{
-      @extend .animated;
-      @extend .tada;
-      opacity: 1;
-      background-color: transparent;
+  color: #ffffff;
+
+  header{
+    h1{
+      display: inline-block;
+      font-size: 32px;
+      padding: .15em .35em .05em;
+      line-height: 40px;
+      height: 40px;
+      background: #fff;
+      color: $bull-color;
+
+      span{
+        color: #000;
+      }
+    }
+  }
+
+  section{
+
+    p{
+      line-height: 24px;
+      font-weight: 400;
+    }
+  }
+
+  footer{
+
+    .btn{
+      margin-top: 1em;
     }
   }
 }
 
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
+.container__background{
 
-.tada {
-  animation-name: tada;
-}
-
-
-
-
-@keyframes tada {
-  0% {
-    transform: scale3d(1, 1, 1);
+  #instafeed{
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
   }
 
-  10%, 20% {
-    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
-  }
+  img{
+    display: block;
+    float: left;
+    width: 20%;
+    opacity: 0;
+    background: red;
 
-  30%, 50%, 70%, 90% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-  }
+    &.image{
+      opacity: 1;
+      background-color: transparent;
 
-  40%, 60%, 80% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-  }
+      &:hover{
+        @extend .animated;
+        @extend .tada;
 
-  100% {
-    transform: scale3d(1, 1, 1);
+        padding: .5em;
+        width: calc(20% - 1em);
+      }
+    }
   }
 }
+
+
+.btn{
+  padding: .75em .8em;
+  min-width: 240px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+
+  @at-root #{&}--cat{  
+    box-shadow: inset 0 0 0 2px currentColor;
+    background: transparent;
+    color: currentColor;
+    float: right;
+
+    &:hover{
+      background: #ffffff;
+      color: $bull-color;
+    }
+  }
+
+}
+
+
+/*---------------------------------
+    EFFECTS 
+    ---------------------------------*/
+
+
+    .animated{
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+
+    .tada{
+      animation-name: tada;
+    }
+
+
+
+
+    @keyframes tada{
+      0%{
+        transform: scale3d(1, 1, 1);
+      }
+
+      10%, 20%{
+        transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+      }
+
+      30%, 50%, 70%, 90%{
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+      }
+
+      40%, 60%, 80%{
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+      }
+
+      100%{
+        transform: scale3d(1, 1, 1);
+      }
+    }
