@@ -1,0 +1,14 @@
+{
+  "name": "animatescss",
+  "homepage": "https://github.com/LukyVj/animate.scss",
+  "_release": "7b4cc44d17",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7b4cc44d17582a305e9c0c629556c5d56d9d7b39"
+  },
+  "_source": "git://github.com/LukyVj/animate.scss.git",
+  "_target": "*",
+  "_originalSource": "animatescss",
+  "_direct": true
+}
