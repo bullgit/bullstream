@@ -1,0 +1,19 @@
+@import 'normalize.css';
+@import 'animate.scss';
+
+section{
+  width: 100%;
+  float: left;
+  clear: both;
+
+  &:hover img:not(:hover){
+    opacity: 0;
+  }
+  
+
+}
+
+img{
+    min-width: 100px;
+    max-width: 100px;
+  }
