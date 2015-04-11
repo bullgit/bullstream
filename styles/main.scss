@@ -107,9 +107,9 @@ p, a{
       }
 
       &:hover span.logo--2:after{
-            content: 'git';
-            color: #000;
-          }
+        content: 'git';
+        color: #000;
+      }
     }
   }
 
@@ -203,8 +203,9 @@ p, a{
 }
 
 .remove{
-    transform: scale(0);
-  }
+  transform: scale(0);
+  transition: transform .3s ease;
+}
 
 /*---------------------------------
     EFFECTS 
