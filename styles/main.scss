@@ -158,13 +158,13 @@ p, a{
   img, .tweets{
     display: block;
     float: left;
-    width: 20%;
+    width: calc(20% - 1em);
     color: #fff;
 
 
     &.tweets{
       padding: .5em;
-      width: 20%;
+      width: calc(20% - 1em);
 
       overflow: hidden;
 
@@ -183,11 +183,6 @@ p, a{
       @extend .animated;
       @extend .tada;
       
-
-      &:hover{
-        width: 20%;
-      }
-
     }
   }
 
@@ -240,7 +235,8 @@ p, a{
 
 .remove{
   transform: scale(0);
-  transition: transform .3s ease;
+  border-radius: 100%;
+  transition: transform .3s ease, border-radius .3s ease;
 }
 
 /*---------------------------------

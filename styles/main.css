@@ -406,36 +406,38 @@ th {
   margin: 0 0 1.5em;
   -webkit-align-self: flex-start;
   align-self: flex-start;
-  box-sizing: border-box;
   width: 100%;
+}
+.item .tweets {
+  width: 100% !important;
 }
 
 @media only screen and (min-width: 400px) {
   .masonry {
-    -moz-column-count: 2;
     -webkit-column-count: 2;
+    -moz-column-count: 2;
     column-count: 2;
   }
 }
 @media only screen and (min-width: 700px) {
   .masonry {
-    -moz-column-count: 3;
     -webkit-column-count: 3;
+    -moz-column-count: 3;
     column-count: 3;
   }
 }
 @media only screen and (min-width: 900px) {
   .masonry {
-    -moz-column-count: 4;
     -webkit-column-count: 4;
+    -moz-column-count: 4;
     column-count: 4;
   }
 }
 @media only screen and (min-width: 1100px) {
   .masonry {
-    -moz-column-count: 5;
-    -webkit-column-count: 5;
-    column-count: 5;
+    -webkit-column-count: 6;
+    -moz-column-count: 6;
+    column-count: 6;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -562,12 +564,12 @@ p, a {
 .container__background img, .container__background .tweets {
   display: block;
   float: left;
-  width: 20%;
+  width: calc(20% - 1em);
   color: #fff;
 }
 .container__background img.tweets, .container__background .tweets.tweets {
   padding: .5em;
-  width: 20%;
+  width: calc(20% - 1em);
   overflow: hidden;
 }
 .container__background img.tweets p, .container__background .tweets.tweets p {
@@ -578,9 +580,6 @@ p, a {
 }
 .container__background img.image, .container__background .tweets.image {
   background-color: transparent;
-}
-.container__background img.image:hover, .container__background .tweets.image:hover {
-  width: 20%;
 }
 .container__background .tweets {
   background-color: #eff0f2;
@@ -631,8 +630,9 @@ p, a {
 .remove, .container.step-2:after {
   -webkit-transform: scale(0);
   transform: scale(0);
-  transition: -webkit-transform .3s ease;
-  transition: transform .3s ease;
+  border-radius: 100%;
+  transition: -webkit-transform .3s ease, border-radius .3s ease;
+  transition: transform .3s ease, border-radius .3s ease;
 }
 
 /*---------------------------------
