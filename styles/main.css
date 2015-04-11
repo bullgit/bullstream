@@ -165,6 +165,8 @@ p, a {
 .remove, .container.step-2:after {
   -webkit-transform: scale(0);
   transform: scale(0);
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
 }
 
 /*---------------------------------
